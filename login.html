@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Đăng nhập</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Tên đăng nhập" required />
+      <input type="password" id="password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const msg = document.getElementById("message");
+
+      if (username === "admin" && password === "123456") { //kiểm tra username và pass
+        msg.style.color = "green";
+        msg.textContent = "Đăng nhập thành công!";
+        setTimeout(() => {
+          window.location.href = "admin.html";//chuyển sang trang admin
+        }, 1000);
+      } else {
+        msg.style.color = "red";
+        msg.textContent = "Tên đăng nhập hoặc mật khẩu không đúng!";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Thêm Sản Phẩm</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <div id="productList"></div>
+    <h2>Admin - Thêm Sản Phẩm</h2>
+    <form id="addProductForm">
+      <div class="form-group">
+        <label for="productName">Tên sản phẩm:</label>
+        <input type="text" id="productName" name="productName" required>
+      </div>
+      <div class="form-group">
+        <label for="productPrice">Giá sản phẩm (VND):</label>
+        <input type="number" id="productPrice" name="productPrice" required min="0">
+      </div>
+      <div class="form-group">
+        <label for="productImage">Hình ảnh sản phẩm:</label>
+        <input type="file" id="productImage" name="productImage" accept="image/*" required>
+      </div>
+      <button type="submit">Thêm Sản Phẩm</button>
+    </form>
+    <div id="productList"></div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
