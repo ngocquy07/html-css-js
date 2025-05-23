@@ -5,69 +5,94 @@ body {
 }
 
 header {
-  background: #f8f8f8;
-  padding: 0;
-}
-
-.logo {
-  color: #e91e63;
-  width: 150px;
-  margin-top: 20px;
-  margin-bottom: 5px;
+  background: #ffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 0; 
 }
 
 .top-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #f8f8f8;
-  padding: 16px 20px 8px 20px;
-  font-size: 14px;
-  font-family: Arial, sans-serif;
-  gap: 32px;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 80px;
+  background: #ffff;
+  box-sizing: border-box;
+  gap: 28px; /*khoảng cách giữa các thành phần */
 }
 
-.top-left {
-  flex: 1;
+.logo {
+  margin-right: 0;
 }
 
-.top-left span {
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.product img {
+  width: 100%;
+  max-width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  margin: 10px auto 12px auto;
+}
+
+.hotline {
   color: #333;
-  text-shadow: 0 1px 0 #fff;
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 8px;
+  margin-right: 8px;
+  white-space: nowrap;
 }
 
-.top-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.top-right a {
-  color: #333;
-  text-shadow: 0 1px 0 #fff;
-  text-decoration: none;
-  margin-left: 0;
-}
-
-.top-right a i {
-  margin-right: 5px;
-}
-
-.top-right button {
+.login-btn {
   background: #ff6699;
   color: #fff;
   border: none;
-  padding: 8px 18px;
+  padding: 6px 20px;
   border-radius: 4px;
+  width: 150%;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   font-size: 15px;
+  margin-left: 5px;
+  margin-right: 10px;
+  transition: background 0.2s;
 }
 
-.top-right button:hover {
+.login-btn:hover {
   background: #ff3366;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 16px rgba(255, 51, 102, 0.15);
+}
+
+.search-box {
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 14px;
+  border-radius: 5px;
+  border: 2px solid #333;
+  width: 240px;
+  margin-left: 50px;
+  margin-right: 8px;
+  display: block;
+}
+
+.cart {
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+
+.cart:hover {
+  color: #ff6699;
 }
 
 .menu-dropdown {
@@ -83,6 +108,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  margin-left: 8px;
 }
 
 .hamburger span {
@@ -121,31 +147,6 @@ header {
 
 .menu-dropdown:hover .dropdown-content {
   display: flex;
-}
-
-.search-box {
-  height: 40px;
-  font-size: 14px;
-  line-height: 20px;
-  padding: 0 14px;
-  border-radius: 5px;
-  border: 2px solid #333;
-  width: 240px;
-  margin-left: 24px;
-  margin-right: 12px;
-  display: block;
-}
-
-.cart {
-  font-size: 22px;
-  cursor: pointer;
-  color: #888;
-  margin-left: 0;
-  transition: color 0.2s;
-}
-
-.cart:hover {
-  color: #ff6699;
 }
 
 .top-announcement {
@@ -234,24 +235,23 @@ header {
 }
 
 footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 10px;
+  background: #dd88a4;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  padding: 0; 
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   max-width: 1200px;
-  margin: auto;
-  gap: 30px;
+  margin: 0 auto;
+  padding: 0 32px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .footer-col {
-  flex: 1;
-  min-width: 220px;
+  margin: 0 12px;
 }
 
 .footer-col h4 {
@@ -323,16 +323,20 @@ footer {
   color: red;
 }
 
-@media (max-width: 768px) { /*override layout khi thu nhỏ màn hình*/
+@media (max-width: 768px) {
   header, .footer-container {
     flex-direction: column !important;
     align-items: center !important;
+    padding: 0 !important;
   }
 
-  .top-bar, .top-left, .top-right {
+  .top-bar {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center;
+    padding: 0 !important;
+    gap: 12px !important;
+    height: auto !important;
   }
 
   .logo img {
@@ -376,4 +380,3 @@ footer {
     text-align: center !important;
   }
 }
-

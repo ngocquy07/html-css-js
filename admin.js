@@ -8,7 +8,7 @@ document.getElementById('addProductForm').addEventListener('submit', function(e)
 
   if (!file) return;
 
-  const reader = new FileReader();
+  const reader = new FileReader();//dùng để đọc hình ảnh dễ lưu và hiển thị
   reader.onload = function(event) {
     const imageUrl = event.target.result;
 
@@ -21,7 +21,7 @@ document.getElementById('addProductForm').addEventListener('submit', function(e)
     localStorage.setItem('products', JSON.stringify(products));
     alert('Đã thêm sản phẩm thành công!');
     document.getElementById('addProductForm').reset();
-    renderProducts();
+    renderProducts();// hiển thị sản phẩm mới
   };
   reader.readAsDataURL(file);
 });
@@ -31,12 +31,12 @@ function renderProducts() {
   const productList = document.getElementById('productList');
   let products = JSON.parse(localStorage.getItem('products')) || [];
   productList.innerHTML = '';
-  products.forEach((product, index) => {
+  products.forEach((product, index) => {//tạo các item cho sản phẩm
     const div = document.createElement('div');
     div.className = 'admin-product-item';
     div.innerHTML = `
       <img src="${product.image}" alt="${product.name}" width="80" style="vertical-align:middle;margin-right:10px;">
-      <strong>${product.name}</strong> - ${Number(product.price).toLocaleString()}₫
+      <strong>${product.name}</strong> ${Number(product.price).toLocaleString()}₫
       <button class="delete-btn" data-index="${index}">Xóa</button>
     `;
     productList.appendChild(div);
@@ -52,4 +52,4 @@ function renderProducts() {
   });
 }
 
-renderProducts();//hiển thị trang khi tải
+renderProducts();//hiển thị khi tải lại trang
